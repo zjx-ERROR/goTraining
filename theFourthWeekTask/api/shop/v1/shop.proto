@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package shop.v1;
+
+option go_package = "api/shop/v1;v1";
+
+service Shop{
+    rpc GetGoods (GetGoodsReq) returns (GetGoodsReply){}
+
+    rpc CreateGoods(CreateGoodsReq)returns(CreateGoodsReply){}
+}
+
+message GetGoodsReq{
+    uint64 id = 1;
+}
+message GetGoodsReply{
+    string name = 1;
+    double price =2;
+}
+message CreateGoodsReq{
+    string name = 1;
+    double price =2;
+}
+message CreateGoodsReply{
+    uint64 id = 1;
+}
