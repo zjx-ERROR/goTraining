@@ -1,0 +1,357 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ""
+    version: 0.0.1
+paths:
+    /terraria/admin/v1/monster:
+        get:
+            tags:
+                - Admin
+            operationId: Admin_ListMonster
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListMonsterReply'
+        put:
+            tags:
+                - Admin
+            operationId: Admin_UpdateMonster
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateMonsterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateMonsterReply'
+        post:
+            tags:
+                - Admin
+            operationId: Admin_CreateMonster
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateMonsterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateMonsterReply'
+    /terraria/admin/v1/monster/{id}:
+        get:
+            tags:
+                - Admin
+            operationId: Admin_GetMonster
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetMonsterReply'
+        delete:
+            tags:
+                - Admin
+            operationId: Admin_DeleteMonster
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteMonsterReply'
+    /terraria/admin/v1/weapon:
+        get:
+            tags:
+                - Admin
+            operationId: Admin_ListWeapon
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.ListWeaponReply'
+        put:
+            tags:
+                - Admin
+            operationId: Admin_UpdateWeapon
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.UpdateWeaponRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.UpdateWeaponReply'
+        post:
+            tags:
+                - Admin
+            operationId: Admin_CreateWeapon
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.admin.v1.CreateWeaponRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.CreateWeaponReply'
+    /terraria/admin/v1/weapon/{id}:
+        get:
+            tags:
+                - Admin
+            operationId: Admin_GetWeapon
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.GetWeaponReply'
+        delete:
+            tags:
+                - Admin
+            operationId: Admin_DeleteWeapon
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.admin.v1.DeleteWeaponReply'
+    /terraria/bff/v1/monster:
+        get:
+            tags:
+                - Bff
+            operationId: Bff_ListMonster
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.bff.v1.ListMonsterReply'
+    /terraria/bff/v1/monster/{id}:
+        get:
+            tags:
+                - Bff
+            operationId: Bff_GetMonster
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.bff.v1.GetMonsterReply'
+    /terraria/bff/v1/weapon:
+        get:
+            tags:
+                - Bff
+            operationId: Bff_ListWeapon
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.bff.v1.ListWeaponReply'
+    /terraria/bff/v1/weapon/{id}:
+        get:
+            tags:
+                - Bff
+            operationId: Bff_GetWeapon
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.bff.v1.GetWeaponReply'
+components:
+    schemas:
+        api.admin.v1.CreateMonsterReply:
+            type: object
+            properties:
+                id:
+                    type: string
+        api.admin.v1.CreateMonsterRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.admin.v1.CreateWeaponReply:
+            type: object
+            properties:
+                id:
+                    type: string
+        api.admin.v1.CreateWeaponRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.admin.v1.DeleteMonsterReply:
+            type: object
+            properties: {}
+        api.admin.v1.DeleteWeaponReply:
+            type: object
+            properties: {}
+        api.admin.v1.GetMonsterReply:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.admin.v1.GetWeaponReply:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.admin.v1.ListMonsterReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListMonsterReply_Data'
+        api.admin.v1.ListMonsterReply_Data:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+        api.admin.v1.ListWeaponReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.admin.v1.ListWeaponReply_Data'
+        api.admin.v1.ListWeaponReply_Data:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+        api.admin.v1.UpdateMonsterReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateMonsterRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+        api.admin.v1.UpdateWeaponReply:
+            type: object
+            properties: {}
+        api.admin.v1.UpdateWeaponRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+        api.bff.v1.GetMonsterReply:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.bff.v1.GetWeaponReply:
+            type: object
+            properties:
+                name:
+                    type: string
+        api.bff.v1.ListMonsterReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.bff.v1.ListMonsterReply_Data'
+        api.bff.v1.ListMonsterReply_Data:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+        api.bff.v1.ListWeaponReply:
+            type: object
+            properties:
+                data:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.bff.v1.ListWeaponReply_Data'
+        api.bff.v1.ListWeaponReply_Data:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+tags:
+    - name: Admin
+    - name: Bff

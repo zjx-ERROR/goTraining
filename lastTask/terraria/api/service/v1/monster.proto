@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package api.service.v1;
+
+option go_package = "terraria/api/service/v1;v1";
+
+service Monster {
+    rpc CreateMonster(CreateMonsterRequest) returns (CreateMonsterReply);
+    rpc UpdateMonster(UpdateMonsterRequest) returns (UpdateMonsterReply);
+    rpc DeleteMonster(DeleteMonsterRequest) returns (DeleteMonsterReply);
+    rpc GetMonster(GetMonsterRequest) returns (GetMonsterReply);
+    rpc ListMonster(ListMonsterRequest) returns (ListMonsterReply);
+}
+
+message CreateMonsterRequest {
+    string name = 1;
+}
+message CreateMonsterReply {
+    uint64 id = 1;
+}
+
+message UpdateMonsterRequest {
+    uint64 id   = 1;
+    string name = 2;
+}
+message UpdateMonsterReply {}
+
+message DeleteMonsterRequest {
+    uint64 id = 1;
+}
+message DeleteMonsterReply {}
+
+message GetMonsterRequest {
+    uint64 id = 1;
+}
+message GetMonsterReply {
+    string name = 1;
+}
+
+message ListMonsterRequest {}
+message ListMonsterReply {
+    message Data {
+        uint64 id   = 1;
+        string name = 2;
+    }
+    repeated Data data = 1;
+}

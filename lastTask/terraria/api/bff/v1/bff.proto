@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package api.bff.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "terraria/api/bff/v1;v1";
+
+service Bff {
+    rpc GetMonster(GetMonsterRequest) returns (GetMonsterReply) {
+        option (google.api.http) = {
+            get: "/terraria/bff/v1/monster/{id}"
+        };
+    };
+    rpc ListMonster(ListMonsterRequest) returns (ListMonsterReply) {
+        option (google.api.http) = {
+            get: "/terraria/bff/v1/monster"
+        };
+    };
+    rpc GetWeapon(GetWeaponRequest) returns (GetWeaponReply) {
+        option (google.api.http) = {
+            get: "/terraria/bff/v1/weapon/{id}"
+        };
+    };
+    rpc ListWeapon(ListWeaponRequest) returns (ListWeaponReply) {
+        option (google.api.http) = {
+            get: "/terraria/bff/v1/weapon"
+        };
+    };
+}
+
+message GetMonsterRequest {
+    uint64 id = 1;
+}
+message GetMonsterReply {
+    string name = 1;
+}
+
+message ListMonsterRequest {}
+message ListMonsterReply {
+    message Data {
+        uint64 id   = 1;
+        string name = 2;
+    }
+    repeated Data data = 1;
+}
+
+message GetWeaponRequest {
+    uint64 id = 1;
+}
+message GetWeaponReply {
+    string name = 2;
+}
+
+message ListWeaponRequest {}
+message ListWeaponReply {
+    message Data {
+        uint64 id   = 1;
+        string name = 2;
+    }
+    repeated Data data = 1;
+}

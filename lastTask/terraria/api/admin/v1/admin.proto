@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package api.admin.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "terraria/api/admin/v1;v1";
+
+service Admin {
+    rpc CreateMonster(CreateMonsterRequest) returns (CreateMonsterReply) {
+        option (google.api.http) = {
+            post: "/terraria/admin/v1/monster",
+            body: "*"
+        };
+    };
+    rpc UpdateMonster(UpdateMonsterRequest) returns (UpdateMonsterReply) {
+        option (google.api.http) = {
+            put: "/terraria/admin/v1/monster",
+            body: "*"
+        };
+    };
+    rpc DeleteMonster(DeleteMonsterRequest) returns (DeleteMonsterReply) {
+        option (google.api.http) = {
+            delete: "/terraria/admin/v1/monster/{id}"
+        };
+    };
+    rpc GetMonster(GetMonsterRequest) returns (GetMonsterReply) {
+        option (google.api.http) = {
+            get: "/terraria/admin/v1/monster/{id}"
+        };
+    };
+    rpc ListMonster(ListMonsterRequest) returns (ListMonsterReply) {
+        option (google.api.http) = {
+            get: "/terraria/admin/v1/monster"
+        };
+    };
+    rpc CreateWeapon(CreateWeaponRequest) returns (CreateWeaponReply) {
+        option (google.api.http) = {
+            post: "/terraria/admin/v1/weapon",
+            body: "*"
+        };
+    };
+    rpc UpdateWeapon(UpdateWeaponRequest) returns (UpdateWeaponReply) {
+        option (google.api.http) = {
+            put: "/terraria/admin/v1/weapon",
+            body: "*"
+        };
+    };
+    rpc DeleteWeapon(DeleteWeaponRequest) returns (DeleteWeaponReply) {
+        option (google.api.http) = {
+            delete: "/terraria/admin/v1/weapon/{id}"
+        };
+    };
+    rpc GetWeapon(GetWeaponRequest) returns (GetWeaponReply) {
+        option (google.api.http) = {
+            get: "/terraria/admin/v1/weapon/{id}"
+        };
+    };
+    rpc ListWeapon(ListWeaponRequest) returns (ListWeaponReply) {
+        option (google.api.http) = {
+            get: "/terraria/admin/v1/weapon"
+        };
+    };
+}
+
+message CreateMonsterRequest {
+    string name = 1;
+}
+message CreateMonsterReply {
+    uint64 id = 1;
+}
+
+message UpdateMonsterRequest {
+    uint64 id   = 1;
+    string name = 2;
+}
+message UpdateMonsterReply {}
+
+message DeleteMonsterRequest {
+    uint64 id = 1;
+}
+message DeleteMonsterReply {}
+
+message GetMonsterRequest {
+    uint64 id = 1;
+}
+message GetMonsterReply {
+    string name = 1;
+}
+
+message ListMonsterRequest {}
+message ListMonsterReply {
+    message Data {
+        uint64 id   = 1;
+        string name = 2;
+    }
+    repeated Data data = 1;
+}
+
+message CreateWeaponRequest {
+    string name = 1;
+}
+message CreateWeaponReply {
+    uint64 id = 1;
+}
+
+message UpdateWeaponRequest {
+    uint64 id   = 1;
+    string name = 2;
+}
+message UpdateWeaponReply {}
+
+message DeleteWeaponRequest {
+    uint64 id = 1;
+}
+message DeleteWeaponReply {}
+
+message GetWeaponRequest {
+    uint64 id = 1;
+}
+message GetWeaponReply {
+    string name = 2;
+}
+
+message ListWeaponRequest {}
+message ListWeaponReply {
+    message Data {
+        uint64 id   = 1;
+        string name = 2;
+    }
+    repeated Data data = 1;
+}
