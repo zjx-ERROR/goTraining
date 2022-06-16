@@ -4,14 +4,19 @@ import (
 	"context"
 
 	pb "terraria/api/admin/v1"
+	"terraria/app/admin/internal/biz"
+
+	"github.com/go-kratos/kratos/v2/log"
 )
 
 type AdminService struct {
 	pb.UnimplementedAdminServer
+	log *log.Helper
+	uc  *biz.AdminUsecase
 }
 
-func NewAdminService() *AdminService {
-	return &AdminService{}
+func NewAdminService(uc *biz.AdminUsecase, logger log.Logger) *AdminService {
+	return &AdminService{uc: uc, log: log.NewHelper(logger)}
 }
 
 func (s *AdminService) Createmonster(ctx context.Context, req *pb.CreateMonsterRequest) (*pb.CreateMonsterReply, error) {

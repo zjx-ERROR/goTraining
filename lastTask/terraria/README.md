@@ -52,7 +52,7 @@ docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf 
 BFF 🐶
 Service 🐶
 Admin 🐶
-Job
+Job 
 Task
 错误码的规范 🐶
 grpc的使用 🐶

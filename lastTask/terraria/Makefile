@@ -20,6 +20,15 @@ config:
  	       --go_out=paths=source_relative:./internal \
 	       $(INTERNAL_PROTO_FILES)
 
+.PHONY: errors
+# generate internal proto
+errors:
+	protoc --proto_path=./api \
+	       --proto_path=./third_party \
+ 	       --go_out=paths=source_relative:./api \
+		   --go-errors_out=paths=source_relative:./api \
+	       $(API_PROTO_FILES)
+
 .PHONY: api
 # generate api proto
 api:
