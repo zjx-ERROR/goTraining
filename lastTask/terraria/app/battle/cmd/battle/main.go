@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 
 	"terraria/app/battle/internal/conf"
@@ -12,12 +13,13 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
+	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 )
 
 // go build -ldflags "-X main.Version=x.y.z"
 var (
 	// Name is the name of the compiled software.
-	Name string
+	Name string = "battle"
 	// Version is the version of the compiled software.
 	Version string
 	// flagconf is the config flag.
@@ -45,7 +47,8 @@ func newApp(logger log.Logger, gs *grpc.Server) *kratos.App {
 
 func main() {
 	flag.Parse()
-	logger := log.With(log.NewStdLogger(os.Stdout),
+	writer, _ := rotatelogs.New(fmt.Sprintf("../../../../logs/%s.log", Name))
+	logger := log.With(log.NewStdLogger(writer),
 		"ts", log.DefaultTimestamp,
 		"caller", log.DefaultCaller,
 		"service.id", id,

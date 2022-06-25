@@ -58,7 +58,7 @@ Task
 grpc的使用 🐶
 errgroup并行链路请求
 ELK
-Opentracing
-prometheus
+Opentracing 🐶
+prometheus 🐶
 kafka
 缓存优化（一致性处理，pipeline优化）
